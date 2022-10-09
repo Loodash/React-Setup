@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import './App.css'
+import ComponentForRouterExample from './components/componentForRouterExample/ComponentForRouterExample'
+import CountComponent from './components/countComponent/countComponent'
+import { Link, Routes, Route } from 'react-router-dom'
+function App (): JSX.Element {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+      <Link style={{ margin: '1rem' }} to="/">Counter</Link>
+      <Link style={{ margin: '1rem' }} to="/example">Example</Link>
+      </div>
+      <Routes>
+        <Route path="/" element={<CountComponent/>}></Route>
+        <Route path="/example" element={<ComponentForRouterExample/>}></Route>
+      </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
